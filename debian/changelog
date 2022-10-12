@@ -1,0 +1,242 @@
+libxvmc (2:1.0.12-2) unstable; urgency=medium
+
+  * control: Fix Breaks/Replaces, it was x11proto-dev which had vldXvMC.h.
+    (LP: #1865206)
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Sat, 29 Feb 2020 13:13:46 +0200
+
+libxvmc (2:1.0.12-1) unstable; urgency=medium
+
+  [ Emilio Pozuelo Monfort ]
+  * Perform the build in a `build' subdirectory like we used to do
+    before the dh switch.
+
+  [ Timo Aaltonen ]
+  * New upstream release.
+  * control: Use debhelper-compat, bump to 12.
+  * control: Update Vcs urls to point to salsa.
+  * watch: Update upstream git repo.
+  * signing-key.asc: Add Adam Jackson's key.
+  * control: Bump policy to 4.5.0.
+  * rules: Migrate to dh_missing.
+  * rules: Remove .la files.
+  * dev.install: Updated.
+  * source/format: Marked 1.0.
+  * control: Add Breaks/Replaces on libx11-dev which still had
+    vldXvMC.h.
+  * control: Drop old Conflicts/Replaces.
+  * control: Migrate depends to x11proto-dev.
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Thu, 27 Feb 2020 07:11:50 +0200
+
+libxvmc (2:1.0.10-1) unstable; urgency=medium
+
+  [ Andreas Boll ]
+  * New upstream release.
+    - Fixes CVE-2016-7953 (Closes: #840445).
+  * Update d/upstream/signing-key.asc with Matthieu Herrb's key.
+  * Update a bunch of URLs in packaging to https.
+  * Remove Drew from Uploaders.
+  * Add placeholder comment into series file.
+
+  [ Emilio Pozuelo Monfort ]
+  * Bump debhelper compat to 10.
+  * Switch from xsfbs to dh.
+  * Drop unneeded libtool and automake build-deps, debhelper now depends
+    on and calls dh-autoreconf for us.
+  * Switch to -dbgsym packages.
+  * Move XvMCConfig to its target directory with libxvmc1.install.
+  * Bump Standards-Version to 3.9.8, no changes.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 05 Dec 2016 19:52:24 +0100
+
+libxvmc (2:1.0.9-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Let uscan verify tarball signatures.
+  * Bump Xlib build-dependency to 1.6.
+
+ -- Julien Cristau <jcristau@debian.org>  Thu, 30 Apr 2015 22:54:07 +0200
+
+libxvmc (2:1.0.8-2) unstable; urgency=low
+
+  * Link libXvMCW.so against -ldl (closes: #610592)
+  * Remove Cyril from Uploaders.
+
+ -- Julien Cristau <jcristau@debian.org>  Sat, 12 Jul 2014 17:58:58 +0200
+
+libxvmc (2:1.0.8-1) unstable; urgency=low
+
+  * New upstream release
+    - fixes CVE-2013-1990 and CVE-2013-1999
+  * Bump debhelper compat level to 7.
+  * Use dpkg-buildflags.
+  * Disable silent build rules.
+  * Replace dh_clean -k with dh_prep.
+
+ -- Julien Cristau <jcristau@debian.org>  Mon, 12 Aug 2013 22:22:00 +0200
+
+libxvmc (2:1.0.7-2) unstable; urgency=low
+
+  * Team upload.
+
+  * Switch to Multi-Arch. Thanks Andreas Beckmann for the patch.
+    Closes: #640499.
+  * Bump Standards-Version to 3.9.4. No changes needed.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 09 Jun 2013 02:32:16 +0200
+
+libxvmc (2:1.0.7-1) unstable; urgency=low
+
+  [ Robert Hooker ]
+  * New upstream release.
+  * Bump xutils-dev build-dep for new macros.
+
+  [ Cyril Brulebois ]
+  * Rename the build directory to not include DEB_BUILD_GNU_TYPE for no
+    good reason. Thanks, Colin Watson!
+
+  [ Julien Cristau ]
+  * Drop dh_testroot from debian/rules clean.
+  * Remove David and Andres from Uploaders.
+
+ -- Julien Cristau <jcristau@debian.org>  Tue, 24 Apr 2012 22:46:56 +0200
+
+libxvmc (2:1.0.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update debian/copyright.
+  * Switch from --list-missing to --fail-missing for additional safety.
+  * Add myself to Uploaders.
+
+ -- Cyril Brulebois <kibi@debian.org>  Mon, 08 Nov 2010 00:29:28 +0100
+
+libxvmc (2:1.0.5-1) unstable; urgency=low
+
+  [ Timo Aaltonen ]
+  * Bump the epoch so that this can be synced to Ubuntu in the future.
+  * New upstream release.
+  * Run autoreconf on build. Add build-deps on automake and libtool.
+  * Parse space-separated DEB_BUILD_OPTIONS, and handle parallel=N.
+  * Drop pre-dependency on x11-common from libxvmc-dev.  This was needed
+    for upgrades from sarge.
+
+  [ Brice Goglin ]
+  * Bump Standards-Version to 3.7.3 (no changes).
+  * Drop the XS- prefix from Vcs-Git and Vcs-Browser fields in debian/control.
+  * Remove Branden from Uploaders with his permission.
+  * Add a link to www.X.org and a reference to the upstream module
+    in the long description.
+  * Add upstream URL to debian/copyright.
+  * Use ${binary:Version} instead of the deprecated ${Source-Version}.
+  * Add README.source, bump Standards-Version to 3.8.2.
+  * Use updated xsfbs, closes: #538593.
+  * Move -dbg package to section debug.
+
+  [ Julien Cristau ]
+  * Bump Standards-Version to 3.8.3.
+  * Remove -1 debian revisions from build-deps to appease lintian.
+  * Install XvMC_API.txt in libxvmc-dev.
+
+ -- Julien Cristau <jcristau@debian.org>  Wed, 25 Nov 2009 20:16:44 +0100
+
+libxvmc (1:1.0.4-2) unstable; urgency=low
+
+  * Add XS-Vcs-Browser.
+  * Put binary packages in the proper sections.
+  * Remove Fabio from Uploaders, with his permission.
+  * Upload to unstable.
+
+ -- Julien Cristau <jcristau@debian.org>  Wed, 11 Apr 2007 17:47:36 +0200
+
+libxvmc (1:1.0.4-1) experimental; urgency=low
+
+  [ Julien Cristau ]
+  * New upstream release (X11R7.2).
+  * Drop obsolete CVS info from the descriptions, and add XS-Vcs-Git header.
+  * Install the upstream changelog.
+
+  [ Drew Parsons ]
+  * Build-Depends: xutils-dev (>= 1:7.1.ds-6), since requires
+    xorg-macros 1.1 or later.
+
+ -- Drew Parsons <dparsons@debian.org>  Tue, 20 Mar 2007 23:18:12 +1100
+
+libxvmc (1:1.0.2-2) unstable; urgency=low
+
+  [ Andres Salomon ]
+  * Revert .la file addition.
+
+  [ Drew Parsons ]
+  * dbg package has priority extra.
+  * Explicitly exclude .la from dh_install.
+  * upload to unstable (X11R7.1 transition).
+
+ -- Drew Parsons <dparsons@debian.org>  Sat,  9 Sep 2006 09:26:06 +1000
+
+libxvmc (1:1.0.2-1) experimental; urgency=low
+
+  * New upstream release.
+  * Drop patches/01_debian_config_in_etc.diff; upstream now uses
+    $(sysconfdir).
+  * Set --sysconfdir to /etc during build.
+  * Test for obj-$(DEB_BUILD_GNU_TYPE) before creating it during build;
+    idempotency fix.
+  * Drop duplicate x11-common dep in -dev package.
+  * Bump standards version to 3.7.2.0.
+  * Version x11-common pre-dep in -dev package to 1:7.0.0 to match
+    the rest of Debian.
+  * Bump debhelper compat to 5.
+  * Fix dh_strip call to skip the -dbg package.
+  * Autoreconf w/ an updated xutils-dev so that manpages have the 'x'
+    extension dropped.
+  * Add a debian/copyright file; this was missing...
+  * Include .la files in -dev package.
+
+ -- Andres Salomon <dilinger@debian.org>  Sun, 23 Jul 2006 23:28:30 -0400
+
+libxvmc (1:1.0.1-5) unstable; urgency=low
+
+  * Add XvMCConfig. Also add 01_debian_config_in_etc.diff to have the library
+    look in /etc/X11 for it. Thanks John Goerzen. (closes: #365888)
+  * Run dh_install with --list-missing
+
+ -- David Nusinow <dnusinow@debian.org>  Sun,  7 May 2006 23:25:40 -0400
+
+libxvmc (1:1.0.1-4) unstable; urgency=low
+
+  * Reorder makeshlib command in rules file so that ldconfig is run
+    properly. Thanks Drew Parsons and Steve Langasek.
+
+ -- David Nusinow <dnusinow@debian.org>  Tue, 18 Apr 2006 21:50:01 -0400
+
+libxvmc (1:1.0.1-3) unstable; urgency=low
+
+  * Upload to unstable
+
+ -- David Nusinow <dnusinow@debian.org>  Thu, 23 Mar 2006 22:46:31 -0500
+
+libxvmc (1:1.0.1-2) experimental; urgency=low
+
+  * Version dependencies of the -dev package on the modular xlibs. Thanks John
+    Hughes. (closes: #358165)
+
+ -- David Nusinow <dnusinow@debian.org>  Tue, 21 Mar 2006 20:54:16 -0500
+
+libxvmc (1:1.0.1-1) experimental; urgency=low
+
+  * First modular upload to Debian
+
+ -- David Nusinow <dnusinow@debian.org>  Thu, 29 Dec 2005 20:56:00 -0500
+
+libxvmc (1:1.1.0-2) breezy; urgency=low
+
+  * Bump libxext-dev build-dep to rid us of the dreaded _XOPEN_SOURCE.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Sun, 24 Jul 2005 12:04:26 +0000
+
+libxvmc (1:1.1.0-1) breezy; urgency=low
+
+  * First libxvmc release.
+
+ -- Daniel Stone <daniel.stone@ubuntu.com>  Mon, 16 May 2005 22:10:17 +1000
